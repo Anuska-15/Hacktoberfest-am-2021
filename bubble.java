@@ -1,24 +1,34 @@
-import java.util.*;
-class bubble{
-  public void disp(){
-    Scanner sc=new Scanner(System.in);
-    int n=sc.nextInt();
-    int a[]=new int[n];
-    int i;
-    for(i=0;i<n;i++){
-      a[i]=sc.nextInt();
-    }
-    for(i=0;i<n;i++){
-      for(int j=0;j<n-1;j++){
-        if(a[j]>a[j+1){
-          int t=a[j];
-          a[j]=a[j+1];
-          a[j+1]=t;
-        }
-     }
-   }
-      for(i=0;i<n;i++){
-        System.out.println(a[i]+" ");
-       }
+#include <stdio.h>
+
+int main()
+{
+  int array[100], n, c, d, swap;
+
+  printf("Enter number of elements\n");
+  scanf("%d", &n);
+
+  printf("Enter %d integers\n", n);
+
+  for (c = 0; c < n; c++)
+    scanf("%d", &array[c]);
+
+  for (c = 0 ; c < n - 1; c++)
+  {
+    for (d = 0 ; d < n - c - 1; d++)
+    {
+      if (array[d] > array[d+1]) /* For decreasing order use '<' instead of '>' */
+      {
+        swap       = array[d];
+        array[d]   = array[d+1];
+        array[d+1] = swap;
       }
-     }
+    }
+  }
+
+  printf("Sorted list in ascending order:\n");
+
+  for (c = 0; c < n; c++)
+     printf("%d\n", array[c]);
+
+  return 0;
+}
